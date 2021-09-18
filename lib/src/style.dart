@@ -3,16 +3,18 @@ part of 'markdown.dart';
 class MarkdownStyle {
   MarkdownStyle({
     double fontSizeDelta = 1,
+    bool downSizeHeadline = false,
     Color fontColor = const Color.fromRGBO(20, 20, 20, 1),
     String fontFamily = "",
+    TextTheme? textTheme,
     this.codeStyle = const MarkdownCodeStyle(),
     this.imageStyle = const MarkdownImageStyle(),
-  }) : theme = TextTheme(
-          headline1: TextStyle(fontSize: 96 * fontSizeDelta, fontFamily: fontFamily, fontWeight: FontWeight.bold, color: fontColor),
-          headline2: TextStyle(fontSize: 60 * fontSizeDelta, fontFamily: fontFamily, fontWeight: FontWeight.bold, color: fontColor),
-          headline3: TextStyle(fontSize: 48 * fontSizeDelta, fontFamily: fontFamily, fontWeight: FontWeight.bold, color: fontColor),
-          headline4: TextStyle(fontSize: 34 * fontSizeDelta, fontFamily: fontFamily, fontWeight: FontWeight.bold, color: fontColor),
-          headline5: TextStyle(fontSize: 24 * fontSizeDelta, fontFamily: fontFamily, fontWeight: FontWeight.bold, color: fontColor),
+  }) : theme = textTheme ?? TextTheme(
+          headline1: TextStyle(fontSize: (downSizeHeadline ? 48 : 96) * fontSizeDelta, fontFamily: fontFamily, fontWeight: FontWeight.bold, color: fontColor),
+          headline2: TextStyle(fontSize: (downSizeHeadline ? 34 : 60) * fontSizeDelta, fontFamily: fontFamily, fontWeight: FontWeight.bold, color: fontColor),
+          headline3: TextStyle(fontSize: (downSizeHeadline ? 24 : 48) * fontSizeDelta, fontFamily: fontFamily, fontWeight: FontWeight.bold, color: fontColor),
+          headline4: TextStyle(fontSize: (downSizeHeadline ? 20 : 34) * fontSizeDelta, fontFamily: fontFamily, fontWeight: FontWeight.bold, color: fontColor),
+          headline5: TextStyle(fontSize: (downSizeHeadline ? 16 : 24) * fontSizeDelta, fontFamily: fontFamily, fontWeight: FontWeight.bold, color: fontColor),
           headline6: TextStyle(fontSize: 20 * fontSizeDelta, fontFamily: fontFamily, fontWeight: FontWeight.bold, color: fontColor),
           subtitle1: TextStyle(fontSize: 16 * fontSizeDelta, fontFamily: fontFamily, color: fontColor),
           subtitle2: TextStyle(fontSize: 14 * fontSizeDelta, fontFamily: fontFamily, color: fontColor),
