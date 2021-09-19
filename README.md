@@ -1,14 +1,62 @@
 # custom_markdown
 
-A new Flutter package project.
+welcome to my page!
+[example my blog](https://airy-56405.web.app/)
 
-## Getting Started
+# Installation
 
-This project is a starting point for a Dart
-[package](https://flutter.dev/developing-packages/),
-a library module containing code that can be shared easily across
-multiple Flutter or Dart projects.
+```pubspec.yaml
+  dependencies:
+    custom_markdown:
 
-For help getting started with Flutter, view our 
-[online documentation](https://flutter.dev/docs), which offers tutorials, 
-samples, guidance on mobile development, and a full API reference.
+```
+
+# how to use
+
+it's so easy, the most of simple use case our product!
+
+```dart
+final text = """
+# hello world
+hey guys!
+""";
+
+  Markdown(
+    body: text.replaceAll('\\n', '\n'),
+  ),
+```
+
+and, blow code is one of example.
+
+```dart
+  Markdown(
+    body: text.replaceAll('\\n', '\n'),
+    style: MarkdownHeadlineDecoration(
+      decorationBuilder: (child, headlineType) {
+        if (headlineType == HeadlineType.H1) {
+          return Padding(
+            padding: const EdgeInsets.fromLTRB(0, 30, 0, 0),
+            child: child,
+          );
+        }
+        return Container(
+          child: Align(
+            alignment: Alignment.centerLeft,
+              child: Padding(
+              padding: const EdgeInsets.fromLTRB(16, 9, 16, 12),
+              child: child,
+            ),
+          ),
+          color: colors.materialBlue.withOpacity(0.4),
+        );
+      },
+    ),
+  ),
+```
+
+# this package is still under development.
+
+if you want to know what we development completion or incompletion,
+let you see ```lib/src/elements```
+
+# We are PR welcome ＼＼\\\\٩( 'ω' )و //／／

@@ -1,3 +1,3 @@
 ## 0.0.1
 
-* TODO: Describe initial release.
+yay! we were published super package!
