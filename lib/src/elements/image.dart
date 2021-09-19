@@ -2,7 +2,6 @@ part of '../markdown.dart';
 
 extension _MarkdownParserImageEx on _MarkdownParser {
   Widget? image(String line) {
-    print(line);
     if (RegExp(r'!\[.*\]\(http.*\)').hasMatch(line)) {
       final imageUrl = RegExp(r'\(http.*\)').stringMatch(line)?.replaceFirst('(', '').replaceFirst(')', '');
       final caption = RegExp(r'\[.*\]').stringMatch(line)?.replaceFirst('[', '').replaceFirst(']', '');

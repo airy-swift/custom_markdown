@@ -54,12 +54,47 @@ class _MarkdownParser {
           }
         }
         {
+          /// a カスタムは[MarkdownStyle]から 必ずimageより後ろに配置
+          final x = a(line);
+          if (x != null) {
+            contents.add(x);
+            continue;
+          }
+        }
+        {
+          /// b カスタムは[MarkdownStyle]から
+          final x = b(line);
+          if (x != null) {
+            contents.add(x);
+            continue;
+          }
+        }
+        {
+          /// ul カスタムは[MarkdownStyle]から
+          final x = ul(line);
+          if (x != null) {
+            contents.add(x);
+            continue;
+          }
+        }
+        {
+          /// ol カスタムは[MarkdownStyle]から
+          final x = ol(line);
+          if (x != null) {
+            contents.add(x);
+            continue;
+          }
+        }
+
+        {
           /// 最後の砦。ここまでで該当しないlineは無いとする
           /// p カスタムは[MarkdownStyle]から
           final x = p(line);
           contents.add(x);
         }
+
         /// elementsに関しては以下に記述することを許容しない
+
       }
     } catch (_) {
       // nextlineがなくなったとして握り潰す

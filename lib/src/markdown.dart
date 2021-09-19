@@ -1,7 +1,10 @@
 
 
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import 'dart:html' as html;
+
 
 part 'parser.dart';
 part 'style.dart';
@@ -10,6 +13,10 @@ part 'elements/p.dart';
 part 'elements/headline.dart';
 part 'elements/code.dart';
 part 'elements/image.dart';
+part 'elements/a.dart';
+part 'elements/b.dart';
+part 'elements/ul.dart';
+part 'elements/ol.dart';
 
 class Markdown extends StatelessWidget {
   Markdown({required this.body, this.style}) {
