@@ -33,3 +33,45 @@ extension _MarkdownParserUlEx on _MarkdownParser {
     return null;
   }
 }
+
+
+class MarkdownLiStyle {
+  MarkdownLiStyle({
+    this.liStyle,
+    this.padding = const EdgeInsets.all(8.0),
+    Widget Function(int indent)? ulBuilder,
+    Widget Function(int indent, int num)? olBuilder,
+    this.indentPoint = 10,
+    this.betweenSpacePoint = 6,
+  }) {
+    this.ulBuilder = ulBuilder ??
+            (indent) => Container(
+          width: 7,
+          height: 7,
+          decoration: BoxDecoration(
+            shape: BoxShape.circle,
+            color: indent % 2 == 0 //
+                ? Colors.black87
+                : Colors.blue,
+          ),
+        );
+    this.olBuilder = olBuilder ??
+            (indent, num) => Container(
+          // width: 7,
+          // height: 7,
+          child: Text(num.toString() + '.'),
+        );
+  }
+
+  final TextStyle? liStyle;
+
+  final EdgeInsets padding;
+
+  late final Widget Function(int indent) ulBuilder;
+
+  late final Widget Function(int indent, int num) olBuilder;
+
+  final double indentPoint;
+
+  final double betweenSpacePoint;
+}

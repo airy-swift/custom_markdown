@@ -1,6 +1,5 @@
 name: custom_markdown
 description: we provide flexible custamizable markdown widget & parser.
-author: airy-swift
 homepage: https://airy-56405.web.app/
 version: 0.0.1
 
@@ -12,7 +11,10 @@ dependencies:
   flutter:
     sdk: flutter
 
-  gap:
+  gap: ^2.0.0
+
+  # XHMLRequest error
+#  any_link_preview: ^2.0.1-rc
 
 dev_dependencies:
   flutter_test:

@@ -32,3 +32,13 @@ enum HeadlineType {
   H5,
   H6,
 }
+
+class MarkdownHeadlineDecoration {
+  MarkdownHeadlineDecoration({
+    Widget Function(Widget child, HeadlineType headlineType)? decorationBuilder,
+  }) {
+    builder = decorationBuilder ?? (child, headlineType) => child;
+  }
+
+  late final Widget Function(Widget child, HeadlineType headlineType) builder;
+}

@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'dart:html' as html;
 
-
 part 'parser.dart';
 part 'style.dart';
 part 'elements/br.dart';

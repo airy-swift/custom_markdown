@@ -39,3 +39,30 @@ extension _MarkdownParserImageEx on _MarkdownParser {
     return null;
   }
 }
+
+class MarkdownImageStyle {
+  const MarkdownImageStyle({
+    this.onTap,
+    this.showCaption = true,
+    this.placeHolder,
+    this.imageBuilder,
+    this.captionBuilder,
+    this.errorImage,
+    this.crossAxisAlignment = CrossAxisAlignment.stretch,
+  });
+
+  final VoidCallback? onTap;
+
+  final bool showCaption;
+
+  /// child は image
+  final Widget Function(Widget child)? imageBuilder;
+
+  final Widget Function(String caption)? captionBuilder;
+
+  final Widget? placeHolder;
+
+  final Widget? errorImage;
+
+  final CrossAxisAlignment crossAxisAlignment;
+}
