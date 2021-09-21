@@ -21,8 +21,27 @@ class _MarkdownParser {
       while (true) {
         final line = nextLine;
 
+        ///
+        /// ここから同じ感じの処理が続く
+        ///
+        /// [funcion, function].foreach(...)
+        /// というやり方でもいいがコメントを追記したり後から変更しやすいように当面はこの形式
+        ///
+
         {
-          /// br 改行は複数あればあるだけスペースをとる
+          /// user defined styler
+          final builder = style.userStyle.builder;
+          if (builder != null) {
+            final x = builder(line);
+            if (x != null) {
+              contents.add(x);
+              continue;
+            }
+          }
+        }
+        {
+          /// br
+          /// 改行は複数あればあるだけスペースをとる
           final x = br(line);
           if (x != null) {
             contents.add(x);
@@ -30,7 +49,15 @@ class _MarkdownParser {
           }
         }
         {
-          /// headline カスタムは[MarkdownStyle]から
+          /// hr
+          final x = hr(line);
+          if (x != null) {
+            contents.add(x);
+            continue;
+          }
+        }
+        {
+          /// headline
           final x = headline(line);
           if (x != null) {
             contents.add(x);
@@ -38,7 +65,7 @@ class _MarkdownParser {
           }
         }
         {
-          /// code カスタムは[MarkdownStyle]から syntax highlight対応したい
+          /// code
           final x = code(line);
           if (x != null) {
             contents.add(x);
@@ -46,7 +73,8 @@ class _MarkdownParser {
           }
         }
         {
-          /// image カスタムは[MarkdownStyle]から
+          /// image
+          /// 必ず[a]の前に実行する
           final x = image(line);
           if (x != null) {
             contents.add(x);
@@ -54,7 +82,7 @@ class _MarkdownParser {
           }
         }
         {
-          /// a カスタムは[MarkdownStyle]から 必ずimageより後ろに配置
+          /// a
           final x = a(line);
           if (x != null) {
             contents.add(x);
@@ -62,7 +90,7 @@ class _MarkdownParser {
           }
         }
         {
-          /// b カスタムは[MarkdownStyle]から
+          /// b
           final x = b(line);
           if (x != null) {
             contents.add(x);
@@ -70,7 +98,16 @@ class _MarkdownParser {
           }
         }
         {
-          /// ul カスタムは[MarkdownStyle]から
+          /// checkbox
+          /// 必ず[li]の前に実行する
+          final x = checkBox(line);
+          if (x != null) {
+            contents.add(x);
+            continue;
+          }
+        }
+        {
+          /// ul
           final x = ul(line);
           if (x != null) {
             contents.add(x);
@@ -78,7 +115,7 @@ class _MarkdownParser {
           }
         }
         {
-          /// ol カスタムは[MarkdownStyle]から
+          /// ol
           final x = ol(line);
           if (x != null) {
             contents.add(x);
@@ -88,7 +125,7 @@ class _MarkdownParser {
 
         {
           /// 最後の砦。ここまでで該当しないlineは無いとする
-          /// p カスタムは[MarkdownStyle]から
+          /// p
           final x = p(line);
           contents.add(x);
         }

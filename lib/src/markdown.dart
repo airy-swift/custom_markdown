@@ -8,8 +8,10 @@ import 'dart:html' as html;
 part 'parser.dart';
 part 'style.dart';
 part 'elements/br.dart';
+part 'elements/hr.dart';
 part 'elements/p.dart';
 part 'elements/headline.dart';
+part 'elements/check_box.dart';
 part 'elements/code.dart';
 part 'elements/image.dart';
 part 'elements/a.dart';
@@ -21,6 +23,7 @@ class Markdown extends StatelessWidget {
   Markdown({required this.body, this.style}) {
     final parser = _MarkdownParser(body: body, markdowonStyle: style);
     markdonwBody = parser.parse();
+
   }
 
   final String body;
