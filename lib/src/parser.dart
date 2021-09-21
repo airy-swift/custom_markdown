@@ -73,6 +73,14 @@ class _MarkdownParser {
           }
         }
         {
+          /// note: info, warning, error
+          final x = note(line);
+          if (x != null) {
+            contents.add(x);
+            continue;
+          }
+        }
+        {
           /// image
           /// 必ず[a]の前に実行する
           final x = image(line);
@@ -148,6 +156,18 @@ class _MarkdownParser {
       /// error他にあるかチェック
       throw NoLineException();
     }
+  }
+
+  List<String> lineBlock(String pattern) {
+    final List<String> lines = [];
+    while (true) {
+      final line = nextLine;
+      if (RegExp(pattern).hasMatch(line)) {
+        break;
+      }
+      lines.add(line);
+    }
+    return lines;
   }
 }
 

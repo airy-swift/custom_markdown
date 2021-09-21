@@ -1,5 +1,4 @@
 
-
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
@@ -13,6 +12,7 @@ part 'elements/p.dart';
 part 'elements/headline.dart';
 part 'elements/check_box.dart';
 part 'elements/code.dart';
+part 'elements/note.dart';
 part 'elements/image.dart';
 part 'elements/a.dart';
 part 'elements/b.dart';

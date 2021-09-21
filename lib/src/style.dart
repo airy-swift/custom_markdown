@@ -15,6 +15,7 @@ class MarkdownStyle {
     this.userStyle = const MarkdownUserStyle(),
     this.hrStyle = const MarkdownHrStyle(),
     this.checkboxStyle = const MarkdownCheckboxStyle(),
+    MarkdownNoteStyle? noteStyle,
     MarkdownLiStyle? liStyle,
     MarkdownBStyle? bStyle,
     MarkdownAStyle? aStyle,
@@ -50,6 +51,7 @@ class MarkdownStyle {
         this.aStyle = aStyle ?? MarkdownAStyle(),
         this.bStyle = bStyle ?? MarkdownBStyle(),
         this.liStyle = liStyle ?? MarkdownLiStyle(),
+        this.noteStyle = noteStyle ?? MarkdownNoteStyle(),
         this.headlineDecoration = headlineDecoration ?? MarkdownHeadlineDecoration();
 
   final TextTheme theme;
@@ -71,6 +73,8 @@ class MarkdownStyle {
   final MarkdownHrStyle hrStyle;
 
   final MarkdownCheckboxStyle checkboxStyle;
+
+  final MarkdownNoteStyle noteStyle;
 }
 
 class MarkdownUserStyle {

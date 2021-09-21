@@ -1,20 +1,14 @@
 part of '../markdown.dart';
 
-/// TODO inline
+
 extension _MarkdownParserCodeEx on _MarkdownParser {
   Widget? code(String line) {
     /// code block
     if (RegExp(r'^```').hasMatch(line)) {
-      final List<String> codes = [];
+
       final fileName = line.substring(3);
 
-      while (true) {
-        final line = nextLine;
-        if (RegExp(r'^```$').hasMatch(line)) {
-          break;
-        }
-        codes.add(line);
-      }
+      final List<String> codes = lineBlock(r'^```$');
       // final controller = ScrollController();
 
       final copyButtonBuilder = style.codeStyle.copyButtonBuilder;
