@@ -10,6 +10,8 @@ class _MarkdownParser {
 
   int lineIndex = 0;
 
+  int dryLineIndex = 0;
+
   final MarkdownStyle style;
 
   final Gap gap;
@@ -75,6 +77,14 @@ class _MarkdownParser {
         {
           /// note: info, warning, error
           final x = note(line);
+          if (x != null) {
+            contents.add(x);
+            continue;
+          }
+        }
+        {
+          /// block quote
+          final x = blockQuote(line);
           if (x != null) {
             contents.add(x);
             continue;
@@ -150,7 +160,7 @@ class _MarkdownParser {
         /// elementsに関しては以下に記述することを許容しない
 
       }
-    } catch (_) {
+    } on NoLineException catch (_) {
       // nextlineがなくなったとして握り潰す
     }
     return contents;
@@ -160,6 +170,17 @@ class _MarkdownParser {
     try {
       final line = lines[lineIndex];
       lineIndex++;
+      return line;
+    } catch (_) {
+      /// error他にあるかチェック
+      throw NoLineException();
+    }
+  }
+
+  String get dryNextLine {
+    try {
+      final line = lines[dryLineIndex];
+      dryLineIndex++;
       return line;
     } catch (_) {
       /// error他にあるかチェック
@@ -178,6 +199,20 @@ class _MarkdownParser {
     }
     return lines;
   }
+
+  // List<String> dryExclusiveLineBlock(String pattern, {int? index}) {
+  //   final List<String> lines = [];
+  //   dryLineIndex = index ?? lineIndex - 1; // 開始位置から始めたい
+  //   while (true) {
+  //     final line = dryNextLine;
+  //     if (!RegExp(pattern).hasMatch(line)) {
+  //       lineIndex = dryLineIndex - 1;
+  //       break;
+  //     }
+  //     lines.add(line);
+  //   }
+  //   return lines;
+  // }
 }
 
 class NoLineException implements Exception {}

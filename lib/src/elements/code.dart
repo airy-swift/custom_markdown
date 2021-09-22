@@ -133,7 +133,7 @@ class MarkdownCodeStyle {
           bottomRight: Radius.circular(5),
         )),
     this.fileGuideAlignment = Alignment.topLeft,
-    this.fileGuidePadding = const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+    this.fileGuidePadding = const EdgeInsets.symmetric(horizontal: 10, vertical: 7),
 
     /// user copy button
     this.copyButtonBuilder,
