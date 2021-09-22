@@ -16,6 +16,7 @@ part 'elements/note.dart';
 part 'elements/image.dart';
 part 'elements/a.dart';
 part 'elements/b.dart';
+part 'elements/i.dart';
 part 'elements/ul.dart';
 part 'elements/ol.dart';
 

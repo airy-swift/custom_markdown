@@ -24,7 +24,7 @@ extension _MarkdownParserAEx on _MarkdownParser {
           ),
           TextSpan(
             text: url,
-            style: style.aStyle.linkStyle,
+            style: style.aStyle.style,
             recognizer: style.aStyle.tapGestureRecognizer(url),
           ),
           TextSpan(
@@ -62,7 +62,7 @@ enum ALinkDisplayStyle {
 class MarkdownAStyle {
   MarkdownAStyle({
     TapGestureRecognizer? onLinkTap,
-    this.linkStyle = const TextStyle(color: Colors.blueAccent),
+    this.style = const TextStyle(color: Colors.blueAccent),
     this.displayStyle = ALinkDisplayStyle.Bookmark,
   }) {
     tapGestureRecognizer = (uri) {
@@ -72,7 +72,7 @@ class MarkdownAStyle {
 
   late final TapGestureRecognizer Function(String uri) tapGestureRecognizer;
 
-  final TextStyle linkStyle;
+  final TextStyle style;
 
   final ALinkDisplayStyle displayStyle;
 }

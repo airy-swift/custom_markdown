@@ -44,7 +44,7 @@ extension _MarkdownParserCodeEx on _MarkdownParser {
                       // ),
                       (x) => Text(
                         x,
-                        style: style.codeStyle.fontStyle,
+                        style: style.codeStyle.style,
                       ),
                     )
                     .toList(),
@@ -121,7 +121,7 @@ class MarkdownCodeStyle {
     /// block
     this.padding = const EdgeInsets.fromLTRB(30, 40, 30, 20),
     this.backgroundColor = const Color(0xff424242),
-    this.fontStyle = const TextStyle(color: Color(0xffFAFAFA)),
+    this.style = const TextStyle(color: Color(0xffFAFAFA)),
     this.scrollBarAlwaysShown = true,
 
     /// fileguide
@@ -150,7 +150,7 @@ class MarkdownCodeStyle {
 
   final Color backgroundColor;
 
-  final TextStyle? fontStyle;
+  final TextStyle? style;
 
   final Widget? Function(String code)? copyButtonBuilder;
 

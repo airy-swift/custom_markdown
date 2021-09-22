@@ -1,11 +1,11 @@
 part of '../markdown.dart';
 
-extension _MarkdownParserBEx on _MarkdownParser {
-  Widget? b(String line) {
-    final bMatched = RegExp(r'\*\*').allMatches(line);
+extension _MarkdownParserIEx on _MarkdownParser {
+  Widget? i(String line) {
+    final bMatched = RegExp(r'\*').allMatches(line);
 
     if (bMatched.isNotEmpty && bMatched.length % 2 == 0) {
-      final splitLine = line.split('**');
+      final splitLine = line.split('*');
 
       final List<InlineSpan> lines = [];
 
@@ -15,7 +15,7 @@ extension _MarkdownParserBEx on _MarkdownParser {
             text: value,
             style: index % 2 == 0 //
                 ? style.theme.bodyText1
-                : style.bStyle.style,
+                : style.iStyle.style,
           ),
         );
       });
@@ -32,12 +32,11 @@ extension _MarkdownParserBEx on _MarkdownParser {
   }
 }
 
-class MarkdownBStyle {
-  MarkdownBStyle({
+class MarkdownIStyle {
+  MarkdownIStyle({
     TextStyle? style,
     Color? styleColor,
-  }) : style = style ?? TextStyle(fontWeight: FontWeight.bold, fontSize: 17, color: styleColor)
-          ..apply(fontWeightDelta: 2);
+  }) : style = style ?? TextStyle(fontStyle: FontStyle.italic, fontSize: 17, color: styleColor);
 
   final TextStyle style;
 }

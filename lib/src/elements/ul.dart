@@ -8,12 +8,12 @@ extension _MarkdownParserUlEx on _MarkdownParser {
 
       /// TODO 絶対もっといい書き方ある & 3段目までしか対応していない
       if (line.startsWith('- ')) {
-        text = Text(line.substring(2), style: style.liStyle.liStyle ?? style.theme.bodyText1);
+        text = Text(line.substring(2), style: style.liStyle.style ?? style.theme.bodyText1);
       } else if (line.startsWith('  - ')) {
-        text = Text(line.substring(4), style: style.liStyle.liStyle ?? style.theme.bodyText1);
+        text = Text(line.substring(4), style: style.liStyle.style ?? style.theme.bodyText1);
         indent = 1;
       } else if (line.startsWith('    - ')) {
-        text = Text(line.substring(6), style: style.liStyle.liStyle ?? style.theme.bodyText1);
+        text = Text(line.substring(6), style: style.liStyle.style ?? style.theme.bodyText1);
         indent = 2;
       }
       return Padding(
@@ -37,7 +37,7 @@ extension _MarkdownParserUlEx on _MarkdownParser {
 
 class MarkdownLiStyle {
   MarkdownLiStyle({
-    this.liStyle,
+    this.style,
     this.padding = const EdgeInsets.all(8.0),
     Widget Function(int indent)? ulBuilder,
     Widget Function(int indent, int num)? olBuilder,
@@ -63,7 +63,7 @@ class MarkdownLiStyle {
         );
   }
 
-  final TextStyle? liStyle;
+  final TextStyle? style;
 
   final EdgeInsets padding;
 

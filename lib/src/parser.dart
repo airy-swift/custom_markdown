@@ -99,7 +99,16 @@ class _MarkdownParser {
         }
         {
           /// b
+          /// 必ず[i]の前に実行する
           final x = b(line);
+          if (x != null) {
+            contents.add(x);
+            continue;
+          }
+        }
+        {
+          /// i
+          final x = i(line);
           if (x != null) {
             contents.add(x);
             continue;

@@ -15,14 +15,14 @@ extension _MarkdownParserOlEx on _MarkdownParser {
 
       if (indent0 != null) {
         num = int.parse(RegExp(r'\d+').stringMatch(indent0) ?? "1");
-        text = Text(line.replaceFirst('${num.toString()}.', ''), style: style.liStyle.liStyle ?? style.theme.bodyText1);
+        text = Text(line.replaceFirst('${num.toString()}.', ''), style: style.liStyle.style ?? style.theme.bodyText1);
       } else if (indent1 != null) {
         num = int.parse(RegExp(r'\d+').stringMatch(indent1) ?? "1");
-        text = Text(line.substring(2).replaceFirst('${num.toString()}.', ''), style: style.liStyle.liStyle ?? style.theme.bodyText1);
+        text = Text(line.substring(2).replaceFirst('${num.toString()}.', ''), style: style.liStyle.style ?? style.theme.bodyText1);
         indent = 1;
       } else if (indent2 != null) {
         num = int.parse(RegExp(r'\d+').stringMatch(indent2) ?? "1");
-        text = Text(line.substring(4).replaceFirst('${num.toString()}.', ''), style: style.liStyle.liStyle ?? style.theme.bodyText1);
+        text = Text(line.substring(4).replaceFirst('${num.toString()}.', ''), style: style.liStyle.style ?? style.theme.bodyText1);
         indent = 2;
       } else {
         return null;

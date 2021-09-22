@@ -1,7 +1,6 @@
 part of 'markdown.dart';
 
 class MarkdownStyle {
-
   /// headlineのようなメジャーなものはtop階層のプロパティにしているが基本的にはstyleクラスを噛ませる
   MarkdownStyle({
     double fontSizeDelta = 1,
@@ -19,6 +18,7 @@ class MarkdownStyle {
     MarkdownLiStyle? liStyle,
     MarkdownBStyle? bStyle,
     MarkdownAStyle? aStyle,
+    MarkdownIStyle? iStyle,
     TextStyle? headline1,
     TextStyle? headline2,
     TextStyle? headline3,
@@ -50,6 +50,7 @@ class MarkdownStyle {
             ),
         this.aStyle = aStyle ?? MarkdownAStyle(),
         this.bStyle = bStyle ?? MarkdownBStyle(),
+        this.iStyle = iStyle ?? MarkdownIStyle(),
         this.liStyle = liStyle ?? MarkdownLiStyle(),
         this.noteStyle = noteStyle ?? MarkdownNoteStyle(),
         this.headlineDecoration = headlineDecoration ?? MarkdownHeadlineDecoration();
@@ -75,6 +76,8 @@ class MarkdownStyle {
   final MarkdownCheckboxStyle checkboxStyle;
 
   final MarkdownNoteStyle noteStyle;
+
+  final MarkdownIStyle iStyle;
 }
 
 class MarkdownUserStyle {
