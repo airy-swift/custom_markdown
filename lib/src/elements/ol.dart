@@ -31,7 +31,7 @@ extension _MarkdownParserOlEx on _MarkdownParser {
       return Padding(
         padding: style.liStyle.padding,
         child: Row(
-          crossAxisAlignment: CrossAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             ...List.generate(indent, (_) => Gap(style.liStyle.indentPoint)),
             Center(child: style.liStyle.olBuilder(indent, num)),

@@ -169,7 +169,7 @@ class _MarkdownParser {
         /// elementsに関しては以下に記述することを許容しない
 
       }
-    } on NoLineException catch (_) {
+    } catch (_) {
       // nextlineがなくなったとして握り潰す
     }
     return contents;
