@@ -15,6 +15,7 @@ class MarkdownStyle {
     this.hrStyle = const MarkdownHrStyle(),
     this.checkboxStyle = const MarkdownCheckboxStyle(),
     this.blockQuoteStyle = const MarkdownBlockQuoteStyle(),
+    this.tableStyle = const MarkdownTableStyle(),
     MarkdownNoteStyle? noteStyle,
     MarkdownLiStyle? liStyle,
     MarkdownBStyle? bStyle,
@@ -81,6 +82,8 @@ class MarkdownStyle {
   final MarkdownIStyle iStyle;
 
   final MarkdownBlockQuoteStyle blockQuoteStyle;
+
+  final MarkdownTableStyle tableStyle;
 }
 
 class MarkdownUserStyle {

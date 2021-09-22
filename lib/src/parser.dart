@@ -91,6 +91,15 @@ class _MarkdownParser {
           }
         }
         {
+
+          /// table
+          final x = table(line);
+          if (x != null) {
+            contents.add(x);
+            continue;
+          }
+        }
+        {
           /// image
           /// 必ず[a]の前に実行する
           final x = image(line);

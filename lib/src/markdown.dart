@@ -14,6 +14,7 @@ part 'elements/p.dart';
 part 'elements/headline.dart';
 part 'elements/check_box.dart';
 part 'elements/block_quote.dart';
+part 'elements/table.dart';
 part 'elements/code.dart';
 part 'elements/note.dart';
 part 'elements/image.dart';
