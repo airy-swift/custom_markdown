@@ -1,16 +1,30 @@
+## 0.0.3
+
+**add**
+---
+- italic
+- table
+- block quote
+- note
+- checkbox
+
+**fix**
+---
+hr
+
 ## 0.0.2
 
 **add**
---
+---
 - headline decoration
 - inline code
 
 **fix**
---
+---
 - bold style
 
 **code clean**
---
+---
 - moved each tag styles from style.dart to each elements files.
 
 

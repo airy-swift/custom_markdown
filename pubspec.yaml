@@ -1,7 +1,7 @@
 name: custom_markdown
 description: we provide flexible custamizable markdown widget & parser.
 homepage: https://airy-56405.web.app/
-version: 0.0.2
+version: 0.0.3
 
 environment:
   sdk: ">=2.12.0 <3.0.0"
